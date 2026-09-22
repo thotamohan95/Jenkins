@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t hello-world-app -f dockerfile .'
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                sh 'docker rm -f hello-world-container || true'
+                sh 'docker run -d --name hello-world-container -p 8000:8000 hello-world-app'
+            }
+        }
+    }
+
+    post {
+        always {
+            sh 'docker rm -f hello-world-container || true'
+        }
+    }
+}
