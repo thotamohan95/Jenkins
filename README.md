@@ -1,8 +1,8 @@
 # Jenkins
-Jenkins Zero to Hero — AWS EC2, Docker, and Jenkins Setup
+
 This guide explains how to install and configure Jenkins on an AWS EC2 instance, install Docker, configure Jenkins to communicate with Docker, and prepare the environment for CI/CD pipelines.
 
-1. Create an AWS EC2 Instance
+**1. Create an AWS EC2 Instance**
 Go to the AWS Management Console.
 
 Navigate to EC2.
@@ -15,7 +15,7 @@ Configure and launch the EC2 instance.
 
 Note: Make sure the EC2 instance has sufficient CPU, memory, and storage resources to run Jenkins and Docker.
 
-2. Jenkins Installation Prerequisites
+**2. Jenkins Installation Prerequisites**
 Before installing Jenkins, Java must be installed.
 
 Install Java 17
@@ -31,7 +31,7 @@ java -version
 
 You should see information about the installed Java version.
 
-3. Install Jenkins
+**3. Install Jenkins**
 Add the Jenkins Repository Key
 Run:
 
@@ -62,7 +62,7 @@ Enable Jenkins to start automatically after a system reboot:
 
 sudo systemctl enable jenkins
 
-4. Configure the EC2 Security Group
+**4. Configure the EC2 Security Group**
 By default, Jenkins runs on port 8080.
 
 AWS EC2 inbound traffic restrictions may prevent Jenkins from being accessed externally.
@@ -82,7 +82,7 @@ Source	Your IP address
 
 Security Recommendation: Restrict the source to your IP address where possible instead of allowing traffic from everywhere (0.0.0.0/0).
 
-5. Access Jenkins
+**5. Access Jenkins**
 Once Jenkins is installed and port 8080 is accessible, open the following URL in your browser:
 
 http://<EC2-PUBLIC-IP>:8080
@@ -93,7 +93,7 @@ Example:
 
 http://54.123.45.67:8080
 
-6. Get the Jenkins Administrator Password
+**6. Get the Jenkins Administrator Password**
 Jenkins provides an initial administrator password during the first setup.
 
 Run:
@@ -102,7 +102,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 Copy the password and enter it on the Jenkins setup page.
 
-7. Install Suggested Plugins
+**7. Install Suggested Plugins**
 After entering the administrator password:
 
 Click Install suggested plugins.
@@ -111,7 +111,7 @@ Wait for Jenkins to install the required plugins.
 
 Continue after the installation completes.
 
-8. Create the First Admin User
+**8. Create the First Admin User**
 Jenkins will ask you to create an administrator user.
 
 You can:
@@ -122,14 +122,14 @@ Skip the step.
 
 For a Jenkins instance that will be used for future projects, creating a dedicated admin user is recommended.
 
-9. Jenkins Installation Complete
+**9. Jenkins Installation Complete**
 Once the setup is complete, Jenkins is ready to use.
 
 Access Jenkins at:
 
 http://<EC2-PUBLIC-IP>:8080
 
-10. Install Docker Pipeline Plugin
+**10. Install Docker Pipeline Plugin**
 The Docker Pipeline plugin allows Jenkins Pipeline jobs to work with Docker.
 
 Steps
@@ -151,7 +151,7 @@ Click Install.
 
 Restart Jenkins if required.
 
-11. Install Docker
+**11. Install Docker**
 Connect to the EC2 instance and update the package list:
 
 sudo apt update
@@ -178,7 +178,7 @@ Enable Docker to start automatically after a reboot:
 
 sudo systemctl enable docker
 
-12. Grant Docker Permissions to Jenkins
+**12. Grant Docker Permissions to Jenkins**
 The Jenkins user needs permission to communicate with the Docker daemon.
 
 Add Jenkins User to the Docker Group
@@ -196,7 +196,7 @@ sudo systemctl restart docker
 
 Important: Group membership changes may require the user session or service to be restarted before they take effect.
 
-13. Restart Jenkins
+**13. Restart Jenkins**
 After configuring Docker permissions, restart Jenkins.
 
 Option 1: Restart Using Jenkins URL
@@ -215,7 +215,7 @@ Verify Jenkins:
 
 sudo systemctl status jenkins
 
-14. Verify Jenkins Can Access Docker
+**14. Verify Jenkins Can Access Docker**
 Before configuring Docker-based Jenkins pipelines, verify that the Jenkins user can communicate with Docker.
 
 Run:
@@ -230,7 +230,7 @@ If these commands work without a permission error, Jenkins has access to Docker.
 
 Note: Adding Jenkins to the docker group grants Jenkins access to the Docker daemon. Docker daemon access effectively provides high-level control over the host system, so this configuration should be treated as a privileged access decision.
 
-15. Docker Agent Configuration
+**15. Docker Agent Configuration**
 After completing the previous steps:
 
 Docker is installed.
@@ -344,7 +344,7 @@ Adding automated testing.
 
 Managing credentials and secrets securely.
 
-Jenkins Zero to Hero
+Jenkins
 The overall learning path can be summarized as:
 
 AWS EC2
