@@ -1,5 +1,5 @@
 # Jenkins
-1. Create an AWS EC2 Instance
+**1. Create an AWS EC2 Instance**
 Steps
 
 Go to the AWS Console.
@@ -14,7 +14,7 @@ Configure and launch the EC2 instance.
 
 Note: Make sure the instance has sufficient resources to run Jenkins and Docker.
 
-2. Jenkins Installation Prerequisites
+**2. Jenkins Installation Prerequisites**
 
 Before installing Jenkins, Java must be installed.
 
@@ -34,7 +34,7 @@ java -version
 
 You should see information about the installed Java version.
 
-3. Install Jenkins
+**3. Install Jenkins**
 Add the Jenkins Repository Key
 curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
@@ -50,7 +50,7 @@ sudo apt-get update
 Install Jenkins
 sudo apt-get install jenkins
 
-4. Configure EC2 Security Group
+**4. Configure EC2 Security Group**
 
 By default, Jenkins runs on port 8080.
 
@@ -72,7 +72,7 @@ Source	Your IP address
 
 Security Recommendation: For better security, restrict the source to your IP address where possible instead of allowing traffic from everywhere.
 
-5. Access Jenkins
+**5. Access Jenkins**
 
 Once Jenkins is installed and port 8080 is accessible, open:
 
@@ -81,7 +81,7 @@ http://<EC2-PUBLIC-IP>:8080
 
 Replace <EC2-PUBLIC-IP> with the public IP address of your EC2 instance.
 
-6. Get the Jenkins Administrator Password
+**6. Get the Jenkins Administrator Password**
 
 Jenkins provides an initial administrator password during the first setup.
 
@@ -92,7 +92,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 Copy the password and enter it on the Jenkins setup page.
 
-7. Install Suggested Plugins
+**7. Install Suggested Plugins**
 
 After entering the administrator password:
 
@@ -102,7 +102,7 @@ Wait for Jenkins to install the required plugins.
 
 Continue after the installation completes.
 
-8. Create the First Admin User
+**8. Create the First Admin User**
 
 Jenkins will ask you to create an administrator user.
 
@@ -114,7 +114,7 @@ Skip the step.
 
 For a Jenkins instance that will be used for future projects, creating a dedicated admin user is recommended.
 
-9. Jenkins Installation Complete
+**9. Jenkins Installation Complete**
 
 Once the setup is complete, Jenkins is ready to use.
 
@@ -122,7 +122,7 @@ You can access Jenkins at:
 
 http://<EC2-PUBLIC-IP>:8080
 
-10. Install Docker Pipeline Plugin
+**10. Install Docker Pipeline Plugin**
 
 The Docker Pipeline plugin allows Jenkins pipelines to work with Docker.
 
@@ -147,7 +147,7 @@ Click Install.
 
 Restart Jenkins after the installation completes.
 
-11. Install Docker
+**11. Install Docker**
 
 Connect to the EC2 instance and run:
 
@@ -159,7 +159,7 @@ sudo apt install docker.io
 Verify Docker
 docker --version
 
-12. Grant Docker Permissions to Jenkins
+**12. Grant Docker Permissions to Jenkins**
 
 The Jenkins user needs permission to communicate with the Docker daemon.
 
@@ -175,7 +175,7 @@ usermod -aG docker ubuntu
 Restart Docker
 systemctl restart docker
 
-13. Restart Jenkins
+**13. Restart Jenkins**
 
 After configuring Docker permissions, restart Jenkins.
 
@@ -191,7 +191,7 @@ Run:
 
 sudo systemctl restart jenkins
 
-14. Docker Agent Configuration
+**14. Docker Agent Configuration**
 
 After completing the previous steps:
 
