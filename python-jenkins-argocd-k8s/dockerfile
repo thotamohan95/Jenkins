@@ -1,40 +1,8 @@
-pipeline {
-    agent any
+FROM python:3
+RUN pip install django==3.2
 
-    stages {
+COPY . .
 
-        stage('Install Python and Django') {
-            steps {
-                sh '''
-                    python3 --version
-                    pip3 install django==3.2
-                '''
-            }
-        }
-
-        stage('Copy Application') {
-            steps {
-                sh '''
-                    echo "Application files are already available in Jenkins workspace"
-                    ls -la
-                '''
-            }
-        }
-
-        stage('Django Migration') {
-            steps {
-                sh '''
-                    python3 manage.py migrate
-                '''
-            }
-        }
-
-        stage('Run Django Application') {
-            steps {
-                sh '''
-                    nohup python3 manage.py runserver 0.0.0.0:8000 > django.log 2>&1 &
-                '''
-            }
-        }
-    }
-}
+RUN python manage.py migrate
+EXPOSE 8000
+CMD ["python","manage.py","runserver","0.0.0.0:8000"]
