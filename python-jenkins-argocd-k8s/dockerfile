@@ -1,8 +1,42 @@
-FROM python:3
-RUN pip install django==3.2
+pipeline {
+    agent any
 
-COPY . .
+    stages {
 
-RUN python manage.py migrate
-EXPOSE 8000
-CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                    docker build -t django-app:latest .
+                '''
+            }
+        }
+
+        stage('Run Database Migration') {
+            steps {
+                sh '''
+                    docker run --rm django-app:latest python manage.py migrate
+                '''
+            }
+        }
+
+        stage('Run Django Application') {
+            steps {
+                sh '''
+                    docker stop django-app || true
+                    docker rm django-app || true
+
+                    docker run -d \
+                        --name django-app \
+                        -p 8000:8000 \
+                        django-app:latest
+                '''
+            }
+        }
+    }
+}
