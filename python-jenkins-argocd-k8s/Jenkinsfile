@@ -11,21 +11,17 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh '''
-                    docker build -t django-app:latest .
-                '''
+                sh 'docker build -t django-app:latest .'
             }
         }
 
-        stage('Run Database Migration') {
+        stage('Database Migration') {
             steps {
-                sh '''
-                    docker run --rm django-app:latest python manage.py migrate
-                '''
+                sh 'docker run --rm django-app:latest python manage.py migrate'
             }
         }
 
-        stage('Run Django Application') {
+        stage('Run Django') {
             steps {
                 sh '''
                     docker stop django-app || true
