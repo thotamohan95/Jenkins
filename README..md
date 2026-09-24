@@ -8,7 +8,6 @@ YouTube Video ->
 https://www.youtube.com/watch?v=zZfhAXfBvVA&list=RDCMUCnnQ3ybuyFdzvgv2Ky5jnAA&index=1
 
 
-![Screenshot 2023-02-01 at 5 46 14 PM](https://user-images.githubusercontent.com/43399466/216040281-6c8b89c3-8c22-4620-ad1c-8edd78eb31ae.png)
 
 Install Jenkins, configure Docker as agent, set up cicd, deploy applications to k8s and much more.
 
@@ -18,7 +17,6 @@ Install Jenkins, configure Docker as agent, set up cicd, deploy applications to 
 - Instances(running)
 - Launch instances
 
-<img width="994" alt="Screenshot 2023-02-01 at 12 37 45 PM" src="https://user-images.githubusercontent.com/43399466/215974891-196abfe9-ace0-407b-abd2-adcffe218e3f.png">
 
 ### Install Jenkins.
 
@@ -59,7 +57,6 @@ sudo apt-get install jenkins
 - Security groups
 - Add inbound traffic rules as shown in the image (you can just allow TCP 8080 as well, in my case, I allowed `All traffic`).
 
-<img width="1187" alt="Screenshot 2023-02-01 at 12 42 01 PM" src="https://user-images.githubusercontent.com/43399466/215975712-2fc569cb-9d76-49b4-9345-d8b62187aa22.png">
 
 
 ### Login to Jenkins using the below URL:
@@ -78,19 +75,15 @@ After you login to Jenkins,
 
 ### Click on Install suggested plugins
 
-<img width="1291" alt="Screenshot 2023-02-01 at 10 58 40 AM" src="https://user-images.githubusercontent.com/43399466/215959294-047eadef-7e64-4795-bd3b-b1efb0375988.png">
 
 Wait for the Jenkins to Install suggested plugins
 
-<img width="1291" alt="Screenshot 2023-02-01 at 10 59 31 AM" src="https://user-images.githubusercontent.com/43399466/215959398-344b5721-28ec-47a5-8908-b698e435608d.png">
 
 Create First Admin User or Skip the step [If you want to use this Jenkins instance for future use-cases as well, better to create admin user]
 
-<img width="990" alt="Screenshot 2023-02-01 at 11 02 09 AM" src="https://user-images.githubusercontent.com/43399466/215959757-403246c8-e739-4103-9265-6bdab418013e.png">
 
 Jenkins Installation is Successful. You can now starting using the Jenkins 
 
-<img width="990" alt="Screenshot 2023-02-01 at 11 14 13 AM" src="https://user-images.githubusercontent.com/43399466/215961440-3f13f82b-61a2-4117-88bc-0da265a67fa7.png">
 
 ## Install the Docker Pipeline plugin in Jenkins:
 
@@ -100,7 +93,6 @@ Jenkins Installation is Successful. You can now starting using the Jenkins
    - Select the plugin and click the Install button.
    - Restart Jenkins after the plugin is installed.
    
-<img width="1392" alt="Screenshot 2023-02-01 at 12 17 02 PM" src="https://user-images.githubusercontent.com/43399466/215973898-7c366525-15db-4876-bd71-49522ecb267d.png">
 
 Wait for the Jenkins to be restarted.
 
@@ -130,7 +122,6 @@ http://<ec2-instance-public-ip>:8080/restart
 ```
 
 The docker agent configuration is now successful.
-
 
 
 
