@@ -1,10 +1,10 @@
-Jenkins
+**Jenkins**
 
 Are you looking forward to learn Jenkins right from Zero(installation) to Hero(Build end to end pipelines)? then you are at the right place.
 
-Installation on EC2 Instance
+**Installation on EC2 Instance**
 
-YouTube Video -> https://www.youtube.com/watch?v=zZfhAXfBvVA&list=RDCMUCnnQ3ybuyFdzvgv2Ky5jnAA&index=1
+**YouTube Video** -> https://www.youtube.com/watch?v=zZfhAXfBvVA&list=RDCMUCnnQ3ybuyFdzvgv2Ky5jnAA&index=1
 
 Install Jenkins, configure Docker as agent, set up cicd, deploy applications to k8s and much more.
 
@@ -21,7 +21,7 @@ Pre-Requisites:
 
 Java (JDK)
 
-Run the below commands to install Java and Jenkins
+**Run the below commands to install Java and Jenkins**
 
 Install Java
 sudo apt update
@@ -86,7 +86,7 @@ Jenkins Installation is Successful. You can now starting using the Jenkins
 
 Install the Docker Pipeline plugin in Jenkins:
 
-Log in to Jenkins.
+**Log in to Jenkins.**
 
 Go to Manage Jenkins > Manage Plugins.
 
