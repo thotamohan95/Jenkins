@@ -1,4 +1,3 @@
-# Multi stage and Multi agent script
 pipeline {
   agent none
   stages {
