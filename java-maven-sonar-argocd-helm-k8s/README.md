@@ -2,6 +2,8 @@
 
 **Technology stack:** Jenkins · Maven · JUnit · Mockito · SonarQube · Docker · Container Registry · Helm · Argo CD · Kubernetes
 
+<img width="1321" height="659" alt="image" src="https://github.com/user-attachments/assets/c8c82aa3-4164-4ec2-948b-1137df573abb" />
+
 ## 1. Project Overview
 
 This project demonstrates an end-to-end CI/CD workflow for a Java application. Jenkins automates continuous integration activities, SonarQube evaluates code quality, Docker packages the application into a container image, and Argo CD deploys the desired application state to Kubernetes using Helm and GitOps principles.
