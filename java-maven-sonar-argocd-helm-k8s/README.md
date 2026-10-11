@@ -1,6 +1,6 @@
 # End-to-End CI/CD Pipeline for a Java Application
 
-Jenkins Pipeline for Java based application using Maven, SonarQube, Argo CD, Helm and Kubernetes
+## Jenkins Pipeline for Java based application using Maven, SonarQube, Argo CD, Helm and Kubernetes
 
 <img width="1321" height="659" alt="image" src="https://github.com/user-attachments/assets/c8c82aa3-4164-4ec2-948b-1137df573abb" />
 
